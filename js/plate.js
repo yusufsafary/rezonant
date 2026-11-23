@@ -137,6 +137,7 @@ var tunables = document.querySelectorAll(".tunable");
 
   // ---------- Seal countdown + day window progress ----------
   var cd = document.getElementById("seal-countdown");
+  var chip = document.getElementById("seal-chip");
   var bar = document.getElementById("day-progress");
   var barLabel = document.getElementById("day-progress-label");
   function tick() {
@@ -149,6 +150,7 @@ var tunables = document.querySelectorAll(".tunable");
     var mm = String(Math.floor((s % 3600) / 60)).padStart(2, "0");
     var ss = String(s % 60).padStart(2, "0");
     if (cd) cd.textContent = hh + ":" + mm + ":" + ss;
+    if (chip) chip.textContent = "Seals in " + hh + ":" + mm + ":" + ss;
     var pct = Math.min(100, Math.max(0, (now.getTime() - start) / 864000));
     if (bar) bar.style.width = pct.toFixed(1) + "%";
     if (barLabel) barLabel.textContent = pct.toFixed(1) + "% OF THE DAY PLAYED";

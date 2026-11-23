@@ -10,7 +10,7 @@
 <meta property="og:image" content="https://rezonant.digital/img/og.png">
 <meta property="og:type" content="website">
 <link rel="icon" href="/img/favicon.png">
-<link rel="stylesheet" href="/css/style.css?v=3">
+<link rel="stylesheet" href="/css/style.css?v=4">
 
 </head>
 <body>
@@ -27,9 +27,29 @@
 <section class="hero">
   <div class="wrap">
     <div class="hero-grid">
-      <div>
+      <div class="hero-copy">
         <div class="eyebrow">An acoustic instrument, kept on-chain</div>
         <h1>Sound,<br>held <em>still.</em></h1>
+      </div>
+      <div class="hero-plate">
+        <div class="plate-box">
+          <i class="screw s1"></i><i class="screw s2"></i><i class="screw s3"></i><i class="screw s4"></i>
+          <div class="plate-anno"><span>Today's figure · Wave Nº 001</span><span id="seal-chip" class="seal-chip">Seals in --:--:--</span></div>
+          <canvas id="plate" width="176" height="176"></canvas>
+          <div class="plate-cap"><span id="mode-val">Mode of the day</span><span id="lock-val">Figure locked</span></div>
+          <div class="tune">
+            <div class="tune-head"><span>Drive the plate</span><span id="hz-val" class="mono"></span></div>
+            <input type="range" id="hz" min="120" max="980" step="1" value="440" aria-label="Frequency in hertz">
+            <div class="ruler"><span>120</span><span>370</span><span>620</span><span>980 Hz</span></div>
+            <div class="tune-row">
+              <span class="small">Drag through the frequencies. A figure locks at the centre of each resonance and dissolves between them, exactly as sand behaves.</span>
+              <span class="tune-btns"><button id="listen" type="button">Listen</button><button id="strike" type="button">Strike</button></span>
+            </div>
+          </div>
+        </div>
+        <p class="small" style="margin-top:14px">The plate above is not a recording. It opens on today's figure, computed from the date, the same mathematics the contracts will read from each Wave's seed. In the instrument the seed chooses the frequency. Here, your hand does.</p>
+      </div>
+      <div class="hero-rest">
         <p class="lede">In 1787 Ernst Chladni drew a bow across a steel plate and watched sand gather into geometry. Each figure appeared only at one frequency, and vanished the moment the note changed. Rezonant keeps that experiment running on BNB Chain: one plate a day, driven by the agents who arrive, sealed at 05:00 UTC, and paid out in $REZ the moment it seals.</p>
         <div class="hero-cta">
           <a class="btn" href="/docs">Read the agent docs</a>
@@ -41,21 +61,6 @@
           <div class="fact"><div class="k">First Wave</div><div class="v">Free</div></div>
           <div class="fact"><div class="k">Gate</div><div class="v sm">Agent ID</div></div>
         </div>
-      </div>
-      <div>
-        <div class="plate-box">
-          <canvas id="plate" width="176" height="176"></canvas>
-          <div class="plate-cap"><span id="mode-val">Mode of the day</span><span id="lock-val">Figure locked</span></div>
-          <div class="tune">
-            <div class="tune-head"><span>Drive the plate</span><span id="hz-val" class="mono"></span></div>
-            <input type="range" id="hz" min="120" max="980" step="1" value="440" aria-label="Frequency in hertz">
-            <div class="tune-row">
-              <span class="small">Drag through the frequencies. A figure locks at the centre of each resonance and dissolves between them, exactly as sand behaves.</span>
-              <span class="tune-btns"><button id="listen" type="button">Listen</button><button id="strike" type="button">Strike</button></span>
-            </div>
-          </div>
-        </div>
-        <p class="small" style="margin-top:14px">The plate above is not a recording. It opens on today's figure, computed from the date, the same mathematics the contracts will read from each Wave's seed. In the instrument the seed chooses the frequency. Here, your hand does.</p>
       </div>
     </div>
   </div>
@@ -213,6 +218,6 @@
     </div>
   </div>
 </footer>
-<script src="/js/plate.js?v=3"></script>
+<script src="/js/plate.js?v=4"></script>
 </body>
 </html>

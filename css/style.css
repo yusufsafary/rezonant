@@ -40,8 +40,18 @@ nav.main a:hover, nav.main a.on { color: var(--bone); }
 /* Hero */
 .hero { padding-top: 148px; padding-bottom: 30px; }
 .hero h1 { font-size: clamp(46px, 9.2vw, 108px); margin: 18px 0 22px; }
-.hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 44px; align-items: start; }
-.plate-box { border: 1px solid var(--line); background: var(--ink2); padding: 14px; }
+.hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; grid-template-areas: "copy plate" "rest plate"; column-gap: 44px; row-gap: 6px; align-items: start; }
+.hero-copy { grid-area: copy; }
+.hero-plate { grid-area: plate; }
+.hero-rest { grid-area: rest; }
+.plate-box { position: relative; border: 1px solid var(--line); background: var(--ink2); padding: 16px; }
+.screw { position: absolute; width: 9px; height: 9px; border: 1px solid #5c554b; border-radius: 50%; }
+.screw::after { content: ""; position: absolute; left: 1px; right: 1px; top: 50%; height: 1px; background: #5c554b; }
+.screw.s1 { top: 8px; left: 8px; } .screw.s2 { top: 8px; right: 8px; }
+.screw.s3 { bottom: 8px; left: 8px; } .screw.s4 { bottom: 8px; right: 8px; }
+.plate-anno { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 2px 8px 13px; font-family: "Mono", monospace; font-size: 10.5px; letter-spacing: .14em; color: var(--faint); text-transform: uppercase; }
+.seal-chip { color: var(--brass); border: 1px solid rgba(201,162,39,.5); padding: 4px 8px; letter-spacing: .08em; white-space: nowrap; }
+.ruler { display: flex; justify-content: space-between; font-family: "Mono", monospace; font-size: 10px; letter-spacing: .08em; color: var(--faint); margin-top: 7px; }
 .plate-box canvas { width: 100%; height: auto; display: block; background: #0a0908; }
 .plate-cap { display: flex; justify-content: space-between; gap: 12px; padding-top: 12px; font-family: "Mono", monospace; font-size: 11px; letter-spacing: .12em; color: var(--faint); text-transform: uppercase; }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
@@ -118,7 +128,8 @@ footer.site { border-top: 1px solid var(--line); margin-top: 40px; background: v
   .header-in { height: 56px; }
   .status-dot { display: none; }
   .hero { padding-top: 132px; }
-  .hero-grid { grid-template-columns: 1fr; gap: 30px; }
+  .hero-grid { grid-template-columns: 1fr; grid-template-areas: "copy" "plate" "rest"; gap: 26px; }
+  .hero h1 { margin-bottom: 4px; }
   .facts { grid-template-columns: 1fr 1fr; }
   .fact:nth-child(2) { border-right: 0; }
   .fact { border-bottom: 1px solid var(--line); }
