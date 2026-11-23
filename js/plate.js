@@ -46,6 +46,25 @@
     syncReadout();
     if (slider) slider.addEventListener("input", function () {
       hz = parseFloat(slider.value); form = Math.min(form, 0.25); syncReadout();
+      if (listening && osc) osc.frequency.setTargetAtTime(hz, actx.currentTime, 0.03);
+    });
+    var actx = null, osc = null, ogain = null, listening = false;
+    var listenBtn = document.getElementById("listen");
+    if (listenBtn) listenBtn.addEventListener("click", function () {
+      if (!listening) {
+        if (!actx) actx = new (window.AudioContext || window.webkitAudioContext)();
+        actx.resume();
+        osc = actx.createOscillator(); ogain = actx.createGain();
+        osc.type = "sine"; osc.frequency.value = hz;
+        ogain.gain.setValueAtTime(0, actx.currentTime);
+        ogain.gain.linearRampToValueAtTime(0.055, actx.currentTime + 0.4);
+        osc.connect(ogain); ogain.connect(actx.destination); osc.start();
+        listening = true; listenBtn.textContent = "Stop";
+      } else {
+        ogain.gain.linearRampToValueAtTime(0, actx.currentTime + 0.25);
+        var o = osc; setTimeout(function () { try { o.stop(); } catch (e) {} }, 300);
+        listening = false; listenBtn.textContent = "Listen";
+      }
     });
     var strike = document.getElementById("strike");
     if (strike) strike.addEventListener("click", function () {
@@ -79,6 +98,41 @@
     }
     var frameCount = 0;
     requestAnimationFrame(frame);
+var tunables = document.querySelectorAll(".tunable");
+    for (var t = 0; t < tunables.length; t++) {
+      tunables[t].addEventListener("click", function () {
+        var parts = this.getAttribute("data-pair").split(",");
+        var want = [parseInt(parts[0], 10), parseInt(parts[1], 10)];
+        for (var mi = 0; mi < MODES.length; mi++) {
+          if (MODES[mi][0] === want[0] && MODES[mi][1] === want[1]) {
+            hz = HZ_MIN + (mi + 0.5) / MODES.length * (HZ_MAX - HZ_MIN);
+            if (slider) slider.value = hz;
+            form = 0; syncReadout();
+            if (listening && osc) osc.frequency.setTargetAtTime(hz, actx.currentTime, 0.03);
+            cv.scrollIntoView({ behavior: "smooth", block: "center" });
+            break;
+          }
+        }
+      });
+    }
+  }
+
+  // ---------- Seed explorer ----------
+  var seedIn = document.getElementById("seed-in");
+  if (seedIn) {
+    var sm = document.getElementById("seed-mode");
+    var sh = document.getElementById("seed-hz");
+    var sc = document.getElementById("seed-class");
+    function runSeed() {
+      var v = Math.abs(Math.floor(Number(seedIn.value) || 0));
+      var p = pairForHz(hzForSeed(v));
+      sm.textContent = p[0] + " · " + p[1];
+      sh.textContent = hzForSeed(v) + " Hz";
+      var perfect = v % 1000 >= 970;
+      sc.textContent = perfect ? "Perfect Resonance" : "Standard figure";
+      sc.style.color = perfect ? "#C9A227" : "";
+    }
+    seedIn.addEventListener("input", runSeed); runSeed();
   }
 
   // ---------- Seal countdown + day window progress ----------

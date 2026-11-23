@@ -10,7 +10,7 @@
 <meta property="og:image" content="https://rezonant.digital/img/og.png">
 <meta property="og:type" content="website">
 <link rel="icon" href="/img/favicon.png">
-<link rel="stylesheet" href="/css/style.css?v=2">
+<link rel="stylesheet" href="/css/style.css?v=3">
 
 </head>
 <body>
@@ -51,7 +51,7 @@
             <input type="range" id="hz" min="120" max="980" step="1" value="440" aria-label="Frequency in hertz">
             <div class="tune-row">
               <span class="small">Drag through the frequencies. A figure locks at the centre of each resonance and dissolves between them, exactly as sand behaves.</span>
-              <button id="strike" type="button">Strike</button>
+              <span class="tune-btns"><button id="listen" type="button">Listen</button><button id="strike" type="button">Strike</button></span>
             </div>
           </div>
         </div>
@@ -120,13 +120,14 @@
     <div class="eyebrow">Archive of figures</div>
     <h2 style="font-size:clamp(32px,5.4vw,54px);margin-top:14px">Every frequency leaves <em>a figure.</em></h2>
     <div class="gal">
-      <figure><img src="/img/plate-1.png" alt="Chladni figure mode 2 3"><figcaption><span>Mode 2 · 3</span><b>Damped range</b></figcaption></figure>
-      <figure><img src="/img/plate-2.png" alt="Chladni figure mode 3 5"><figcaption><span>Mode 3 · 5</span><b>Resonant range</b></figcaption></figure>
-      <figure><img src="/img/plate-3.png" alt="Chladni figure mode 4 6 in brass"><figcaption><span>Mode 4 · 6</span><b>Perfect Resonance</b></figcaption></figure>
-      <figure><img src="/img/plate-4.png" alt="Chladni figure mode 2 5"><figcaption><span>Mode 2 · 5</span><b>Damped range</b></figcaption></figure>
-      <figure><img src="/img/plate-5.png" alt="Chladni figure mode 5 6"><figcaption><span>Mode 5 · 6</span><b>Sympathetic range</b></figcaption></figure>
-      <figure><img src="/img/plate-6.png" alt="Chladni figure mode 3 4"><figcaption><span>Mode 3 · 4</span><b>Resonant range</b></figcaption></figure>
+      <figure class="tunable" data-pair="2,3"><img src="/img/plate-1.png" alt="Chladni figure mode 2 3"><figcaption><span>Mode 2 · 3</span><b>Damped range</b></figcaption></figure>
+      <figure class="tunable" data-pair="3,5"><img src="/img/plate-2.png" alt="Chladni figure mode 3 5"><figcaption><span>Mode 3 · 5</span><b>Resonant range</b></figcaption></figure>
+      <figure class="tunable" data-pair="4,6"><img src="/img/plate-3.png" alt="Chladni figure mode 4 6 in brass"><figcaption><span>Mode 4 · 6</span><b>Perfect Resonance</b></figcaption></figure>
+      <figure class="tunable" data-pair="2,5"><img src="/img/plate-4.png" alt="Chladni figure mode 2 5"><figcaption><span>Mode 2 · 5</span><b>Damped range</b></figcaption></figure>
+      <figure class="tunable" data-pair="5,6"><img src="/img/plate-5.png" alt="Chladni figure mode 5 6"><figcaption><span>Mode 5 · 6</span><b>Sympathetic range</b></figcaption></figure>
+      <figure class="tunable" data-pair="3,4"><img src="/img/plate-6.png" alt="Chladni figure mode 3 4"><figcaption><span>Mode 3 · 4</span><b>Resonant range</b></figcaption></figure>
     </div>
+    <p class="small" style="margin-top:14px">Tap any plate in the archive and the instrument at the top of this page re-tunes itself to that figure.</p>
     <p class="small" style="margin-top:18px">Figures are computed, never drawn by hand: a Wave's mode pair and frequency derive from its on-chain seed, and the same equation renders the artwork, the plate on this page, and the archive.</p>
   </div>
 </section>
@@ -143,6 +144,23 @@
         <div><div class="k">Verdict</div><div class="v" id="sim-name">Resonant</div></div>
         <div><div class="k">Claim</div><div class="v" id="sim-per">12,500 $REZ per Wave</div></div>
         <div><div class="k">Always possible</div><div class="v">Perfect Resonance, 250,000 $REZ</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hairline">
+  <div class="wrap">
+    <div class="eyebrow">Seed explorer</div>
+    <h2 style="font-size:clamp(32px,5.4vw,54px);margin-top:14px">Run the <em>arithmetic.</em></h2>
+    <p class="lede" style="margin-top:12px">Every Wave is born from one seed, a number dealt at the mint. Type any seed and run the same derivation this page runs: a mode pair, a frequency, and the one-in-a-thousand question of Perfect Resonance, seed mod 1000 at 970 or above.</p>
+    <div class="sim">
+      <div class="sim-head"><span class="mono">SEED</span><span class="small">Any whole number. Try 970, then 969.</span></div>
+      <input type="number" id="seed-in" value="970" min="0" step="1" inputmode="numeric" aria-label="Seed number">
+      <div class="sim-result">
+        <div><div class="k">Mode pair</div><div class="v" id="seed-mode"></div></div>
+        <div><div class="k">Frequency</div><div class="v" id="seed-hz"></div></div>
+        <div><div class="k">Resonance</div><div class="v" id="seed-class"></div></div>
       </div>
     </div>
   </div>
@@ -194,6 +212,6 @@
     </div>
   </div>
 </footer>
-<script src="/js/plate.js?v=2"></script>
+<script src="/js/plate.js?v=3"></script>
 </body>
 </html>
