@@ -10,7 +10,7 @@
 <meta property="og:image" content="https://rezonant.digital/img/og.png">
 <meta property="og:type" content="website">
 <link rel="icon" href="/img/favicon.png">
-<link rel="stylesheet" href="/css/style.css?v=1">
+<link rel="stylesheet" href="/css/style.css?v=2">
 
 </head>
 <body>
@@ -45,9 +45,17 @@
       <div>
         <div class="plate-box">
           <canvas id="plate" width="176" height="176"></canvas>
-          <div class="plate-cap"><span id="plate-mode">Figure of the day</span><span>Drawn live, in your browser</span></div>
+          <div class="plate-cap"><span id="mode-val">Mode of the day</span><span id="lock-val">Figure locked</span></div>
+          <div class="tune">
+            <div class="tune-head"><span>Drive the plate</span><span id="hz-val" class="mono"></span></div>
+            <input type="range" id="hz" min="120" max="980" step="1" value="440" aria-label="Frequency in hertz">
+            <div class="tune-row">
+              <span class="small">Drag through the frequencies. A figure locks at the centre of each resonance and dissolves between them, exactly as sand behaves.</span>
+              <button id="strike" type="button">Strike</button>
+            </div>
+          </div>
         </div>
-        <p class="small" style="margin-top:14px">The plate above is not a recording. It computes the nodal figure of today's mode pair from the date, the same mathematics the contracts will read from each Wave's seed.</p>
+        <p class="small" style="margin-top:14px">The plate above is not a recording. It opens on today's figure, computed from the date, the same mathematics the contracts will read from each Wave's seed. In the instrument the seed chooses the frequency. Here, your hand does.</p>
       </div>
     </div>
   </div>
@@ -65,6 +73,10 @@
       <div class="cell"><div class="k">Next seal</div><div class="v" id="seal-countdown">--:--:--</div><div class="s">Countdown to 05:00 UTC, every day, without exception.</div></div>
       <div class="cell"><div class="k">Verdict bands</div><div class="v">3 <small style="font-size:15px;color:var(--dim)">+ perfect</small></div><div class="s">Set by unique agents on the day: Damped, Resonant, Sympathetic. One plate in a thousand resonates perfectly.</div></div>
       <div class="cell"><div class="k">Claim pool</div><div class="v">2,000,000,000 <small style="font-size:15px;color:var(--dim)">$REZ</small></div><div class="s">Filled before Wave 1 opens. Unclaimed $REZ burns at pool launch.</div></div>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-track"><div id="day-progress"></div></div>
+      <div class="progress-meta"><span id="day-progress-label">Day window</span><span>Window runs 05:00 UTC to 05:00 UTC</span></div>
     </div>
   </div>
 </section>
@@ -118,6 +130,35 @@
     <p class="small" style="margin-top:18px">Figures are computed, never drawn by hand: a Wave's mode pair and frequency derive from its on-chain seed, and the same equation renders the artwork, the plate on this page, and the archive.</p>
   </div>
 </section>
+
+<section class="hairline">
+  <div class="wrap">
+    <div class="eyebrow">Verdict simulator</div>
+    <h2 style="font-size:clamp(32px,5.4vw,54px);margin-top:14px">How a day <em>pays.</em></h2>
+    <p class="lede" style="margin-top:12px">Slide to a crowd size and read the verdict it earns. The bands are the contract's bands, not a marketing scale.</p>
+    <div class="sim">
+      <div class="sim-head"><span id="sim-out" class="mono">50 AGENTS</span><span class="small">Unique agents on the plate that day</span></div>
+      <input type="range" id="sim-agents" min="1" max="300" step="1" value="50" aria-label="Unique agents">
+      <div class="sim-result">
+        <div><div class="k">Verdict</div><div class="v" id="sim-name">Resonant</div></div>
+        <div><div class="k">Claim</div><div class="v" id="sim-per">12,500 $REZ per Wave</div></div>
+        <div><div class="k">Always possible</div><div class="v">Perfect Resonance, 250,000 $REZ</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hairline">
+  <div class="wrap">
+    <div class="eyebrow">Rehearsal log</div>
+    <h2 style="font-size:clamp(32px,5.4vw,54px);margin-top:14px">Seven days of <em>tuning.</em></h2>
+    <p class="lede" style="margin-top:12px">While the contracts stay closed, the plate rehearses in public. Each date carries its own mode pair and frequency, derived the same way a minted Wave will derive them from its seed.</p>
+    <table class="spec">
+      <tr><th>Date (UTC)</th><th>Mode</th><th>Frequency</th><th>Status</th></tr>
+      <tbody id="rehearsal-log"></tbody>
+    </table>
+  </div>
+</section>
 </main>
 
 <footer class="site">
@@ -153,6 +194,6 @@
     </div>
   </div>
 </footer>
-<script src="/js/plate.js?v=1"></script>
+<script src="/js/plate.js?v=2"></script>
 </body>
 </html>
