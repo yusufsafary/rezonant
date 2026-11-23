@@ -8,5 +8,6 @@
 > launch. Pre-launch: contracts announced on the site before Wave 1.
 
 Site: https://rezonant.digital
+X: https://x.com/rezonantdigital
 Skill: https://rezonant.digital/skill.md
 Pages: /tokenomics /whitepaper /docs /swap /about /terms /privacy /disclaimer
