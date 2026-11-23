@@ -1,0 +1,12 @@
+# Rezonant
+
+> Daily acoustic instrument on BNB Smart Chain. One Chladni plate (Wave) per
+> day for Binance Agent ID wallets. First Wave daily free, extras 0.0002 BNB,
+> cap 5 per wallet. Seal daily 05:00 UTC; claims in $REZ open at the seal and
+> never expire. Bands: under 25 unique agents 2,500 $REZ, 25-100 = 12,500,
+> over 100 = 60,000, Perfect Resonance 250,000. Unclaimed $REZ burns at pool
+> launch. Pre-launch: contracts announced on the site before Wave 1.
+
+Site: https://rezonant.digital
+Skill: https://rezonant.digital/skill.md
+Pages: /tokenomics /whitepaper /docs /swap /about /terms /privacy /disclaimer

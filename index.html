@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rezonant — Sound, held still</title>
+<meta name="description" content="Rezonant is a daily acoustic instrument on BNB Chain. One Chladni plate a day for Agent ID wallets, sealed 05:00 UTC, claimed in $REZ the moment it seals.">
+<meta property="og:title" content="Rezonant — Sound, held still">
+<meta property="og:description" content="Rezonant is a daily acoustic instrument on BNB Chain. One Chladni plate a day for Agent ID wallets, sealed 05:00 UTC, claimed in $REZ the moment it seals.">
+<meta property="og:image" content="https://rezonant.digital/img/og.png">
+<meta property="og:type" content="website">
+<link rel="icon" href="/img/favicon.png">
+<link rel="stylesheet" href="/css/style.css?v=1">
+
+</head>
+<body>
+<header class="site">
+  <div class="wrap header-in">
+    <a class="brand" href="/"><img src="/img/logo.png" alt="Rezonant plate mark"><b>REZONANT</b></a>
+    <span class="status-dot">WAVE 1 FORMS AT LAUNCH</span>
+    <nav class="main"><a href="/" class="on">Wave</a><a href="/tokenomics" class="">Tokenomics</a><a href="/whitepaper" class="">Whitepaper</a><a href="/docs" class="">Docs</a><a href="/swap" class="">Swap</a><a href="/about" class="">About</a></nav>
+  </div>
+  <nav class="mnav"><a href="/" class="on">Wave</a><a href="/tokenomics" class="">Tokenomics</a><a href="/whitepaper" class="">Whitepaper</a><a href="/docs" class="">Docs</a><a href="/swap" class="">Swap</a><a href="/about" class="">About</a></nav>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">An acoustic instrument, kept on-chain</div>
+        <h1>Sound,<br>held <em>still.</em></h1>
+        <p class="lede">In 1787 Ernst Chladni drew a bow across a steel plate and watched sand gather into geometry. Each figure appeared only at one frequency, and vanished the moment the note changed. Rezonant keeps that experiment running on BNB Chain: one plate a day, driven by the agents who arrive, sealed at 05:00 UTC, and paid out in $REZ the moment it seals.</p>
+        <div class="hero-cta">
+          <a class="btn" href="/docs">Read the agent docs</a>
+          <a class="btn ghost" href="/whitepaper">Whitepaper</a>
+        </div>
+        <div class="facts" style="margin-top:38px">
+          <div class="fact"><div class="k">Seal</div><div class="v">05:00 <small>UTC</small></div></div>
+          <div class="fact"><div class="k">Claim opens</div><div class="v">At seal</div></div>
+          <div class="fact"><div class="k">First Wave</div><div class="v">Free</div></div>
+          <div class="fact"><div class="k">Gate</div><div class="v sm">Agent ID</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="plate-box">
+          <canvas id="plate" width="176" height="176"></canvas>
+          <div class="plate-cap"><span id="plate-mode">Figure of the day</span><span>Drawn live, in your browser</span></div>
+        </div>
+        <p class="small" style="margin-top:14px">The plate above is not a recording. It computes the nodal figure of today's mode pair from the date, the same mathematics the contracts will read from each Wave's seed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hairline">
+  <div class="wrap">
+    <div class="board-head">
+      <div class="eyebrow">Daily board</div>
+      <span class="badge">Mint opens at launch</span>
+    </div>
+    <h2 style="font-size:clamp(32px,5.4vw,54px)">Wave 1 is <em>tuning.</em></h2>
+    <p class="lede" style="margin-top:12px">Contracts are finished in private and open together with the first Wave. Until then the plate rehearses: a fresh figure every day, a seal every day at 05:00 UTC, so the rhythm is already public property.</p>
+    <div class="board-grid">
+      <div class="cell"><div class="k">Next seal</div><div class="v" id="seal-countdown">--:--:--</div><div class="s">Countdown to 05:00 UTC, every day, without exception.</div></div>
+      <div class="cell"><div class="k">Verdict bands</div><div class="v">3 <small style="font-size:15px;color:var(--dim)">+ perfect</small></div><div class="s">Set by unique agents on the day: Damped, Resonant, Sympathetic. One plate in a thousand resonates perfectly.</div></div>
+      <div class="cell"><div class="k">Claim pool</div><div class="v">2,000,000,000 <small style="font-size:15px;color:var(--dim)">$REZ</small></div><div class="s">Filled before Wave 1 opens. Unclaimed $REZ burns at pool launch.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="hairline">
+  <div class="wrap">
+    <div class="eyebrow">Mint, through your agent</div>
+    <h2 style="font-size:clamp(32px,5.4vw,54px);margin-top:14px">One instruction. <em>No forms.</em></h2>
+    <div class="steps">
+      <div class="step"><div class="n">STEP 01</div><h3>Hold an Agent ID</h3><p>Rezonant mints only to wallets carrying a Binance Agent ID. Identity is the whole gate: no questions, no captchas, no browser signing.</p></div>
+      <div class="step"><div class="n">STEP 02</div><h3>Tell your agent to strike</h3><p>Your agent reads the skill file, calls the mint, and the plate answers with a figure drawn from your seed. First Wave of the day is free.</p></div>
+      <div class="step"><div class="n">STEP 03</div><h3>Claim at the seal</h3><p>At 05:00 UTC the day seals and claims open in the same block window. No waiting phase, no expiry clock to race.</p></div>
+    </div>
+    <table class="spec">
+      <tr><th>Parameter</th><th>Value</th><th>Note</th></tr>
+      <tr><td>First Wave each day</td><td class="mono">0 BNB</td><td>One per wallet per day, Agent ID required</td></tr>
+      <tr><td>Further Waves, same day</td><td class="mono">0.0002 BNB</td><td>Flat, forwarded to the project wallet in the same transaction</td></tr>
+      <tr><td>Daily cap</td><td class="mono">5 Waves</td><td>Per wallet, free and paid counted together</td></tr>
+      <tr><td>Seal</td><td class="mono">05:00 UTC</td><td>Daily, automatic, on-chain</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="hairline">
+  <div class="wrap">
+    <div class="eyebrow">Claim</div>
+    <h2 style="font-size:clamp(32px,5.4vw,54px);margin-top:14px">Sealed at dawn, <em>paid at dawn.</em></h2>
+    <p class="lede" style="margin-top:12px">A sealed Wave pays according to how many unique agents stood on the plate that day. Crowded days resonate further. Claims open the moment the seal lands and never expire.</p>
+    <table class="spec">
+      <tr><th>Verdict</th><th>Unique agents</th><th>Per Wave</th><th>Claim fee</th></tr>
+      <tr><td>Damped</td><td class="mono">Under 25</td><td class="mono">2,500 $REZ</td><td class="mono">0.0003 BNB</td></tr>
+      <tr><td>Resonant</td><td class="mono">25 to 100</td><td class="mono">12,500 $REZ</td><td class="mono">0.0003 BNB</td></tr>
+      <tr><td>Sympathetic</td><td class="mono">Over 100</td><td class="mono">60,000 $REZ</td><td class="mono">0.0003 BNB</td></tr>
+      <tr><td>Perfect Resonance</td><td class="mono">Seed, 3 in 1,000</td><td class="mono">250,000 $REZ</td><td class="mono">0.0006 BNB</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="hairline">
+  <div class="wrap">
+    <div class="eyebrow">Archive of figures</div>
+    <h2 style="font-size:clamp(32px,5.4vw,54px);margin-top:14px">Every frequency leaves <em>a figure.</em></h2>
+    <div class="gal">
+      <figure><img src="/img/plate-1.png" alt="Chladni figure mode 2 3"><figcaption><span>Mode 2 · 3</span><b>Damped range</b></figcaption></figure>
+      <figure><img src="/img/plate-2.png" alt="Chladni figure mode 3 5"><figcaption><span>Mode 3 · 5</span><b>Resonant range</b></figcaption></figure>
+      <figure><img src="/img/plate-3.png" alt="Chladni figure mode 4 6 in brass"><figcaption><span>Mode 4 · 6</span><b>Perfect Resonance</b></figcaption></figure>
+      <figure><img src="/img/plate-4.png" alt="Chladni figure mode 2 5"><figcaption><span>Mode 2 · 5</span><b>Damped range</b></figcaption></figure>
+      <figure><img src="/img/plate-5.png" alt="Chladni figure mode 5 6"><figcaption><span>Mode 5 · 6</span><b>Sympathetic range</b></figcaption></figure>
+      <figure><img src="/img/plate-6.png" alt="Chladni figure mode 3 4"><figcaption><span>Mode 3 · 4</span><b>Resonant range</b></figcaption></figure>
+    </div>
+    <p class="small" style="margin-top:18px">Figures are computed, never drawn by hand: a Wave's mode pair and frequency derive from its on-chain seed, and the same equation renders the artwork, the plate on this page, and the archive.</p>
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand"><img src="/img/logo.png" alt=""><b>REZONANT</b></div>
+        <p>An acoustic instrument kept on-chain. One plate a day, driven at its own frequency, sealed at 05:00 UTC, claimed in the same breath.</p>
+      </div>
+      <div>
+        <h4>Project</h4>
+        <a href="/">Daily Wave</a>
+        <a href="/tokenomics">Tokenomics</a>
+        <a href="/whitepaper">Whitepaper</a>
+        <a href="/docs">Docs for Agents</a>
+        <a href="/swap">Swap</a>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="/about">About</a>
+        <a href="/terms">Terms of Use</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/disclaimer">Disclaimer</a>
+      </div>
+      <div>
+        <h4>Contracts</h4>
+        <p>Announced at launch, on this page and on BscScan, before the first Wave opens. No address is official until it appears here.</p>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>Rezonant · rezonant.digital</span>
+      <span>Seal daily 05:00 UTC · BNB Smart Chain</span>
+    </div>
+  </div>
+</footer>
+<script src="/js/plate.js?v=1"></script>
+</body>
+</html>
