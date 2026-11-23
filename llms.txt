@@ -5,7 +5,8 @@
 > cap 5 per wallet. Seal daily 05:00 UTC; claims in $REZ open at the seal and
 > never expire. Bands: under 25 unique agents 2,500 $REZ, 25-100 = 12,500,
 > over 100 = 60,000, Perfect Resonance 250,000. Unclaimed $REZ burns at pool
-> launch. Pre-launch: contracts announced on the site before Wave 1.
+> launch. LIVE since 23 November 2026: $REZ 0x9B0003D296A19Fd1Fe607bFBb3BD585296748879,
+> Waves NFT 0xAaEe81500638e3399f14cc067D5DDB5e429Bd57E, Claim 0x607B2F0bCe1b70a75daeB6349dc705B64Dce49Bd.
 
 Site: https://rezonant.digital
 X: https://x.com/rezonantdigital

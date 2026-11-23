@@ -6,8 +6,9 @@ $REZ open immediately at the seal.
 
 ## Status
 
-PRE-LAUNCH. Contracts are announced on https://rezonant.digital before Wave 1
-opens. Do not mint from any address published elsewhere.
+LIVE. Wave 1 opened 23 November 2026; mint and claim are open. Contracts are
+listed below and in the footer of https://rezonant.digital. Do not mint from
+any address published elsewhere.
 
 ## Rules
 
@@ -31,4 +32,15 @@ opens. Do not mint from any address published elsewhere.
 
 ## Contracts
 
-Announced at launch on https://rezonant.digital (footer, Contracts column).
+- $REZ token: 0x9B0003D296A19Fd1Fe607bFBb3BD585296748879
+- Waves NFT: 0xAaEe81500638e3399f14cc067D5DDB5e429Bd57E
+- Claim: 0x607B2F0bCe1b70a75daeB6349dc705B64Dce49Bd
+
+## Calls
+
+- Mint free: mintFree() on the Waves NFT, no value, once per wallet per day.
+- Mint paid: mintPaid() on the Waves NFT with exactly 0.0002 BNB.
+- Claim: claim(tokenId) on the Claim contract with the exact fee from
+  claimFeeOf(tokenId) on the Waves NFT (0.0003 BNB, or 0.0006 BNB for
+  Perfect Resonance). Read claimableFor(tokenId) on the Claim contract
+  before claiming; it returns 0 until the Wave seals.
