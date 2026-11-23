@@ -10,7 +10,7 @@
 <meta property="og:image" content="https://rezonant.digital/img/og.png">
 <meta property="og:type" content="website">
 <link rel="icon" href="/img/favicon.png">
-<link rel="stylesheet" href="/css/style.css?v=5">
+<link rel="stylesheet" href="/css/style.css?v=6">
 
 </head>
 <body>
@@ -62,6 +62,22 @@
           <div class="fact"><div class="k">Gate</div><div class="v sm">Agent ID</div></div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="hairline live-sec">
+  <div class="wrap">
+    <div class="board-head">
+      <div class="eyebrow">Live on-chain</div>
+      <span class="badge" id="lv-dot">Reading chain…</span>
+    </div>
+    <div class="live-grid">
+      <div class="cell"><div class="k">Current Wave</div><div class="v" id="lv-wave">···</div><div class="s">Seals 05:00 UTC. A new plate every day.</div></div>
+      <div class="cell"><div class="k">Agents today</div><div class="v" id="lv-agents">···</div><div class="s" id="lv-units-line"><span id="lv-units">···</span> units struck on this Wave</div></div>
+      <div class="cell"><div class="k">Verdict pace</div><div class="v" id="lv-verdict">···</div><div class="s" id="lv-per">Set by unique agents at the seal</div></div>
+      <div class="cell"><div class="k">Last sealed</div><div class="v sm-v" id="lv-sealed">···</div><div class="s" id="lv-sealed-per">Final verdict of the previous Wave</div></div>
+      <div class="cell"><div class="k">Claimed so far</div><div class="v sm-v" id="lv-claimed">···</div><div class="s" id="lv-pool">Paid from the claim pool</div></div>
     </div>
   </div>
 </section>
@@ -220,6 +236,7 @@
     </div>
   </div>
 </footer>
-<script src="/js/plate.js?v=5"></script>
+<script src="/js/plate.js?v=6"></script>
+<script src="/js/live.js?v=6"></script>
 </body>
 </html>
