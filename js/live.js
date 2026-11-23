@@ -50,6 +50,7 @@
     call(WAVES, SEL.currentWave).then(function (wave) {
       var w = Number(wave);
       set("lv-wave", "Nº " + String(w).padStart(3, "0"));
+      set("hd-status", "Wave Nº " + String(w).padStart(3, "0") + " · Live · Seals 05:00 UTC");
       return Promise.all([
         call(WAVES, SEL.participantsOf + arg(w)),
         call(WAVES, SEL.unitsInWave + arg(w)),
